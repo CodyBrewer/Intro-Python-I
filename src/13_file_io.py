@@ -10,6 +10,11 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 # Note: pay close attention to your current directory when trying to open "foo.txt"
 
 # YOUR CODE HERE
+with open('foo.txt') as file:
+    read_data = file.read()
+    print(read_data)
+    file.close()
+    print(f"finished reading: {file.closed}")
 
 # Open up a file called "bar.txt" (which doesn't exist yet) for
 # writing. Write three lines of arbitrary content to that file,
@@ -17,3 +22,14 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 # sure that it contains what you expect it to contain
 
 # YOUR CODE HERE
+with open('bar.txt', 'w+') as file:
+    haiku = "I'm writing my code,\nBut I do not realize,\nHours have gone by"
+    file.write(haiku)
+    file.close()
+    print('finished writing haiku', file.closed)
+
+with open('bar.txt') as file:
+    read_data = file.read()
+    print(read_data)
+    file.close()
+    print(f"finished reading: {file.closed}")
